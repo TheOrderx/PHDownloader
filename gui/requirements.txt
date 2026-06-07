@@ -1,0 +1,20 @@
+# PHDownloader GUI dependencies
+# Install from the project root:  pip install -r gui/requirements.txt
+#
+# These pull in the GUI toolkit plus the phvid backend libraries the GUI calls
+# into. A working `ffmpeg`/`ffprobe` on PATH is still required for clean MP4/MKV
+# output (the app auto-falls back to a .ts byte-merge when ffmpeg is absent).
+
+# --- GUI toolkit (pinned) ---
+PyQt6==6.8.1
+PyQt6-Qt6==6.8.2
+PyQt6-sip==13.11.1
+
+# --- Backend (phvid) ---
+yt-dlp>=2024.4.9
+aiohttp>=3.9.0
+requests>=2.31.0
+tqdm>=4.66.0
+
+# --- Optional ---
+# plyer>=2.1   # nicer native desktop notifications (falls back to tray balloons)

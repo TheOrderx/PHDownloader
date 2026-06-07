@@ -1,0 +1,602 @@
+/* ============================================================================
+   PHDownloader — main stylesheet
+   Tokens (@NAME@) are substituted at runtime by gui/utils/theme.py.
+   ========================================================================== */
+
+* {
+    font-family: "Segoe UI", "Inter", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    color: @TEXT@;
+    outline: none;
+}
+
+QWidget {
+    background: transparent;
+}
+
+QToolTip {
+    background-color: @SURFACE_ALT@;
+    color: @TEXT@;
+    border: 1px solid @BORDER@;
+    border-radius: 6px;
+    padding: 6px 9px;
+}
+
+/* --- Root rounded container ------------------------------------------------ */
+#Root {
+    background-color: @BG@;
+    border: 1px solid @BORDER@;
+    border-radius: 12px;
+}
+#Root[maximized="true"] {
+    border-radius: 0px;
+    border: 0px;
+}
+
+/* --- Title bar ------------------------------------------------------------- */
+#TitleBar {
+    background-color: @TITLEBAR_BG@;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+#Root[maximized="true"] #TitleBar {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+#TitleBarTitle {
+    font-size: 13px;
+    font-weight: 600;
+    color: @TEXT@;
+}
+#TitleBarSubtitle {
+    font-size: 11px;
+    color: @TEXT_MUTED@;
+}
+QPushButton#TBMin, QPushButton#TBMax, QPushButton#TBClose {
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    min-width: 30px;
+    max-width: 30px;
+    min-height: 26px;
+    max-height: 26px;
+}
+QPushButton#TBMin:hover, QPushButton#TBMax:hover {
+    background-color: @SURFACE_HOVER@;
+}
+QPushButton#TBClose:hover {
+    background-color: @DANGER@;
+}
+QPushButton#TBMin:pressed, QPushButton#TBMax:pressed {
+    background-color: @SURFACE_ALT@;
+}
+QPushButton#TBClose:pressed {
+    background-color: @DANGER_HOVER@;
+}
+
+/* --- Sidebar --------------------------------------------------------------- */
+#Sidebar {
+    background-color: @SIDEBAR_BG@;
+    border-bottom-left-radius: 12px;
+}
+#Root[maximized="true"] #Sidebar {
+    border-bottom-left-radius: 0px;
+}
+#SidebarLogo {
+    font-size: 16px;
+    font-weight: 700;
+    color: @TEXT@;
+    padding: 4px 2px;
+}
+#SidebarLogoAccent {
+    color: @ACCENT@;
+    font-size: 16px;
+    font-weight: 700;
+}
+#SidebarVersion {
+    color: @TEXT_MUTED@;
+    font-size: 11px;
+}
+#SidebarSection {
+    color: @TEXT_MUTED@;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 10px;
+}
+
+QPushButton[nav="true"] {
+    background: transparent;
+    color: @TEXT_DIM@;
+    border: none;
+    border-left: 3px solid transparent;
+    border-radius: 8px;
+    text-align: left;
+    padding: 10px 12px;
+    font-size: 13px;
+    font-weight: 500;
+}
+QPushButton[nav="true"]:hover {
+    background-color: @SURFACE_HOVER@;
+    color: @TEXT@;
+}
+QPushButton[nav="true"][active="true"] {
+    background-color: @ACCENT_SOFT@;
+    color: @ACCENT@;
+    border-left: 3px solid @ACCENT@;
+    font-weight: 600;
+}
+
+/* --- Generic buttons ------------------------------------------------------- */
+QPushButton {
+    background-color: @SURFACE_ALT@;
+    color: @TEXT@;
+    border: 1px solid @BORDER@;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-weight: 500;
+}
+QPushButton:hover {
+    background-color: @SURFACE_HOVER@;
+}
+QPushButton:disabled {
+    color: @TEXT_MUTED@;
+    background-color: @SURFACE@;
+    border-color: @BORDER@;
+}
+
+QPushButton[variant="accent"] {
+    background-color: @ACCENT@;
+    color: #1a1a1a;
+    border: none;
+    font-weight: 700;
+    padding: 9px 18px;
+}
+QPushButton[variant="accent"]:hover {
+    background-color: @ACCENT_HOVER@;
+}
+QPushButton[variant="accent"]:pressed {
+    background-color: @ACCENT_PRESS@;
+}
+QPushButton[variant="accent"]:disabled {
+    background-color: @SURFACE_ALT@;
+    color: @TEXT_MUTED@;
+}
+
+QPushButton[variant="ghost"] {
+    background: transparent;
+    border: 1px solid @BORDER@;
+    color: @TEXT_DIM@;
+}
+QPushButton[variant="ghost"]:hover {
+    background-color: @SURFACE_HOVER@;
+    color: @TEXT@;
+    border-color: @ACCENT@;
+}
+
+QPushButton[variant="subtle"] {
+    background: transparent;
+    border: none;
+    color: @TEXT_DIM@;
+    padding: 6px 10px;
+}
+QPushButton[variant="subtle"]:hover {
+    background-color: @SURFACE_HOVER@;
+    color: @TEXT@;
+}
+
+QPushButton[variant="danger"] {
+    background-color: transparent;
+    border: 1px solid @DANGER@;
+    color: @DANGER@;
+}
+QPushButton[variant="danger"]:hover {
+    background-color: @DANGER@;
+    color: #ffffff;
+}
+
+QPushButton#IconButton {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    padding: 6px;
+    min-width: 16px;
+}
+QPushButton#IconButton:hover {
+    background-color: @SURFACE_HOVER@;
+    border-color: @BORDER@;
+}
+
+/* --- Line edits ------------------------------------------------------------ */
+QLineEdit {
+    background-color: @SURFACE_ALT@;
+    border: 1.5px solid @BORDER@;
+    border-radius: 8px;
+    padding: 9px 12px;
+    color: @TEXT@;
+    selection-background-color: @ACCENT@;
+    selection-color: #1a1a1a;
+}
+QLineEdit:hover {
+    border-color: @TEXT_MUTED@;
+}
+QLineEdit:focus {
+    border: 1.5px solid @ACCENT@;
+    background-color: @SURFACE@;
+}
+QLineEdit::placeholder {
+    color: @TEXT_MUTED@;
+}
+QLineEdit#UrlInput {
+    font-size: 14px;
+    padding: 12px 14px;
+}
+
+/* --- Combo boxes ----------------------------------------------------------- */
+QComboBox {
+    background-color: @SURFACE_ALT@;
+    border: 1.5px solid @BORDER@;
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: @TEXT@;
+    min-height: 18px;
+}
+QComboBox:hover {
+    border-color: @TEXT_MUTED@;
+}
+QComboBox:focus {
+    border-color: @ACCENT@;
+}
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: center right;
+    width: 26px;
+    border: none;
+}
+QComboBox::down-arrow {
+    image: url(@CHEVRON@);
+    width: 16px;
+    height: 16px;
+}
+QComboBox QAbstractItemView {
+    background-color: @SURFACE_ALT@;
+    border: 1px solid @BORDER@;
+    border-radius: 8px;
+    padding: 4px;
+    selection-background-color: @ACCENT_SOFT@;
+    selection-color: @ACCENT@;
+    outline: none;
+}
+QComboBox QAbstractItemView::item {
+    padding: 7px 10px;
+    border-radius: 6px;
+    min-height: 20px;
+}
+
+/* --- Spin boxes ------------------------------------------------------------ */
+QSpinBox, QDoubleSpinBox {
+    background-color: @SURFACE_ALT@;
+    border: 1.5px solid @BORDER@;
+    border-radius: 8px;
+    padding: 7px 10px;
+    color: @TEXT@;
+}
+QSpinBox:focus, QDoubleSpinBox:focus {
+    border-color: @ACCENT@;
+}
+
+/* --- Check boxes ----------------------------------------------------------- */
+QCheckBox {
+    spacing: 9px;
+    color: @TEXT@;
+    background: transparent;
+}
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid @BORDER@;
+    border-radius: 5px;
+    background-color: @SURFACE_ALT@;
+}
+QCheckBox::indicator:hover {
+    border-color: @ACCENT@;
+}
+QCheckBox::indicator:checked {
+    background-color: @ACCENT@;
+    border-color: @ACCENT@;
+    image: url(@ICONDIR@/check.svg);
+}
+QCheckBox:disabled {
+    color: @TEXT_MUTED@;
+}
+
+/* --- Sliders --------------------------------------------------------------- */
+QSlider::groove:horizontal {
+    height: 6px;
+    background: @SURFACE_ALT@;
+    border-radius: 3px;
+}
+QSlider::sub-page:horizontal {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 @ACCENT@, stop:1 @ACCENT_HOVER@);
+    border-radius: 3px;
+}
+QSlider::handle:horizontal {
+    background: #ffffff;
+    border: 2px solid @ACCENT@;
+    width: 16px;
+    height: 16px;
+    margin: -6px 0;
+    border-radius: 9px;
+}
+QSlider::handle:horizontal:hover {
+    background: @ACCENT@;
+}
+
+/* --- Progress bars --------------------------------------------------------- */
+QProgressBar {
+    background-color: @SURFACE_ALT@;
+    border: none;
+    border-radius: 5px;
+    height: 8px;
+    text-align: center;
+    color: transparent;
+}
+QProgressBar::chunk {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 @ACCENT@, stop:1 @ACCENT_HOVER@);
+    border-radius: 5px;
+}
+QProgressBar[state="complete"]::chunk {
+    background-color: @SUCCESS@;
+}
+QProgressBar[state="failed"]::chunk {
+    background-color: @DANGER@;
+}
+QProgressBar[state="paused"]::chunk {
+    background-color: @TEXT_MUTED@;
+}
+
+/* --- Cards ----------------------------------------------------------------- */
+#Card {
+    background-color: @SURFACE@;
+    border: 1px solid @BORDER@;
+    border-radius: 10px;
+}
+#Card:hover {
+    border-color: @TEXT_MUTED@;
+}
+#Card[selected="true"] {
+    border: 1.5px solid @ACCENT@;
+}
+#CardTitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: @TEXT@;
+}
+#CardSub {
+    font-size: 12px;
+    color: @TEXT_DIM@;
+}
+#CardProgressText {
+    font-size: 11px;
+    color: @TEXT_DIM@;
+}
+#CardThumb {
+    background-color: @SURFACE_ALT@;
+    border-radius: 6px;
+}
+
+/* --- Status badges --------------------------------------------------------- */
+#StatusBadge {
+    border-radius: 9px;
+    padding: 3px 10px;
+    font-size: 11px;
+    font-weight: 700;
+}
+#StatusBadge[status="queued"]    { background-color: @SURFACE_ALT@; color: @TEXT_DIM@; }
+#StatusBadge[status="downloading"]{ background-color: @ACCENT_SOFT@; color: @ACCENT@; }
+#StatusBadge[status="paused"]    { background-color: @SURFACE_ALT@; color: @WARNING@; }
+#StatusBadge[status="complete"]  { background-color: @SURFACE_ALT@; color: @SUCCESS@; }
+#StatusBadge[status="failed"]    { background-color: @SURFACE_ALT@; color: @DANGER@; }
+#StatusBadge[status="processing"]{ background-color: @ACCENT_SOFT@; color: @ACCENT@; }
+
+/* --- Drop zone ------------------------------------------------------------- */
+#DropZone {
+    background-color: @SURFACE@;
+    border: 2px dashed @BORDER@;
+    border-radius: 10px;
+    color: @TEXT_DIM@;
+}
+#DropZone[dragging="true"] {
+    border: 2px dashed @ACCENT@;
+    background-color: @ACCENT_SOFT@;
+    color: @ACCENT@;
+}
+#DropZoneText {
+    color: @TEXT_DIM@;
+    font-size: 13px;
+}
+
+/* --- Panels / group cards -------------------------------------------------- */
+#Panel {
+    background-color: @SURFACE@;
+    border: 1px solid @BORDER@;
+    border-radius: 10px;
+}
+#PanelTitle {
+    font-size: 13px;
+    font-weight: 700;
+    color: @TEXT@;
+}
+#FieldLabel {
+    color: @TEXT_DIM@;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* --- Page headings --------------------------------------------------------- */
+#PageTitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: @TEXT@;
+}
+#PageSubtitle {
+    font-size: 13px;
+    color: @TEXT_DIM@;
+}
+#SectionLabel {
+    font-size: 12px;
+    font-weight: 700;
+    color: @TEXT_MUTED@;
+}
+
+/* --- Empty state ----------------------------------------------------------- */
+#EmptyTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: @TEXT_DIM@;
+}
+#EmptyText {
+    font-size: 13px;
+    color: @TEXT_MUTED@;
+}
+
+/* --- Tabs ------------------------------------------------------------------ */
+QTabWidget::pane {
+    border: 1px solid @BORDER@;
+    border-radius: 10px;
+    top: -1px;
+    background-color: @SURFACE@;
+}
+QTabBar::tab {
+    background: transparent;
+    color: @TEXT_DIM@;
+    padding: 8px 18px;
+    margin-right: 4px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-weight: 500;
+}
+QTabBar::tab:hover {
+    color: @TEXT@;
+}
+QTabBar::tab:selected {
+    color: @ACCENT@;
+    border-bottom: 2px solid @ACCENT@;
+    font-weight: 600;
+}
+
+/* --- Tables ---------------------------------------------------------------- */
+QTableWidget, QTableView {
+    background-color: @SURFACE@;
+    alternate-background-color: @SURFACE_ALT@;
+    border: 1px solid @BORDER@;
+    border-radius: 10px;
+    gridline-color: transparent;
+    selection-background-color: @ACCENT_SOFT@;
+    selection-color: @ACCENT@;
+    outline: none;
+}
+QTableView::item {
+    padding: 6px 8px;
+    border: none;
+}
+QTableView::item:selected {
+    background-color: @ACCENT_SOFT@;
+    color: @ACCENT@;
+}
+QHeaderView::section {
+    background-color: @SURFACE_ALT@;
+    color: @TEXT_DIM@;
+    padding: 9px 10px;
+    border: none;
+    border-bottom: 1px solid @BORDER@;
+    font-weight: 600;
+}
+QHeaderView::section:hover {
+    color: @TEXT@;
+}
+QTableCornerButton::section {
+    background-color: @SURFACE_ALT@;
+    border: none;
+}
+
+/* --- Menus ----------------------------------------------------------------- */
+QMenu {
+    background-color: @SURFACE_ALT@;
+    border: 1px solid @BORDER@;
+    border-radius: 8px;
+    padding: 6px;
+}
+QMenu::item {
+    padding: 7px 22px 7px 14px;
+    border-radius: 6px;
+    color: @TEXT@;
+}
+QMenu::item:selected {
+    background-color: @ACCENT_SOFT@;
+    color: @ACCENT@;
+}
+QMenu::separator {
+    height: 1px;
+    background: @BORDER@;
+    margin: 5px 8px;
+}
+
+/* --- Scroll areas / bars --------------------------------------------------- */
+QScrollArea {
+    border: none;
+    background: transparent;
+}
+QScrollBar:vertical {
+    background: transparent;
+    width: 10px;
+    margin: 2px;
+}
+QScrollBar::handle:vertical {
+    background: @SCROLL@;
+    border-radius: 4px;
+    min-height: 30px;
+}
+QScrollBar::handle:vertical:hover {
+    background: @SCROLL_HOVER@;
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: transparent;
+}
+QScrollBar:horizontal {
+    background: transparent;
+    height: 10px;
+    margin: 2px;
+}
+QScrollBar::handle:horizontal {
+    background: @SCROLL@;
+    border-radius: 4px;
+    min-width: 30px;
+}
+QScrollBar::handle:horizontal:hover {
+    background: @SCROLL_HOVER@;
+}
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    width: 0px;
+}
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+    background: transparent;
+}
+
+/* --- First-run setup banner ------------------------------------------------ */
+#SetupBanner {
+    background-color: @SURFACE_ALT@;
+    border-top: 1px solid @BORDER@;
+    border-bottom-left-radius: 11px;
+    border-bottom-right-radius: 11px;
+}
+
+/* --- Misc text labels ------------------------------------------------------ */
+QLabel { background: transparent; }
+#Hint { color: @TEXT_MUTED@; font-size: 12px; }
+#AboutText { color: @TEXT_DIM@; font-size: 13px; }
+#AboutText a { color: @ACCENT@; }
